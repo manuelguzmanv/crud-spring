@@ -5,40 +5,42 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.mg.model.Producto;
-import cl.mg.repository.ProductoRepository;
-import cl.mg.service.IProductoService;
+import cl.mg.model.Categoria;
+import cl.mg.repository.CategoriaRepository;
+import cl.mg.service.ICategoriaService;
+
 
 @Service
-public class CategoriaServiceImpl implements IProductoService{
+public class CategoriaServiceImpl implements ICategoriaService{
 
 	@Autowired
-	private ProductoRepository productoRepo; 
-	
+	private CategoriaRepository categoriaRepo;
+
 	@Override
-	public Producto findById(Integer id) {
-		return productoRepo.findById(id).orElse(null);	
+	public Categoria findById(Integer id) {
+		return categoriaRepo.findById(id).orElse(null);
 	}
 
 	@Override
-	public List<Producto> findAll() {
-		return productoRepo.findAll();
+	public List<Categoria> findAll() {		
+		return categoriaRepo.findAll();
 	}
 
 	@Override
-	public Producto save(Producto producto) {
-		return productoRepo.save(producto);
+	public Categoria save(Categoria categoria) {
+		return categoriaRepo.save(categoria);
 	}
 
 	@Override
-	public Producto update(Producto producto) {
-		return productoRepo.save(producto);
+	public Categoria update(Categoria categoria) {
+		return categoriaRepo.save(categoria);
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		productoRepo.deleteById(id);
-		
-	}
+		categoriaRepo.deleteById(id);		
+	} 
+	
+	
 
 }
